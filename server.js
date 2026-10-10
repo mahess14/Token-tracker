@@ -14,15 +14,10 @@ app.use(express.json());
 
 
 
-const MONGO_URI = process.env.MONGO_URI;
-const JWT_SECRET = process.env.JWT_SECRET;
-if (!MONGO_URI || !JWT_SECRET) {
-  console.error("MONGO_URI and JWT_SECRET must be set");
-  process.exit(1);
-}
-/*const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://garidepallimaheshkumar_db_user:6tsKhy87kwJM70Xz@cluster0.zfe6uvv.mongodb.net/token_tracker";
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://garidepallimaheshkumar_db_user:6tsKhy87kwJM70Xz@cluster0.zfe6uvv.mongodb.net/token_tracker";
 const PORT = process.env.PORT || 5000;
-const JWT_SECRET = process.env.JWT_SECRET || "change-this-secret";*/
+const JWT_SECRET = process.env.JWT_SECRET || "change-this-secret";
 
 // wraps async routes so any error is returned as JSON instead of an empty response
 const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
